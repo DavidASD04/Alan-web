@@ -57,10 +57,10 @@
       <li><a href="#contacto" data-num="06">Contacto</a></li>
     </ul>
     <div class="drawer-foot">
-      <a class="cv-btn" href="public/Alan%20Santana%20(1).pdf" target="_blank" rel="noopener" download>
-        <span>Descargar CV</span>
+      <button type="button" class="cv-btn" data-open-cv>
+        <span>Ver CV</span>
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
-      </a>
+      </button>
       <p>alan.santana@design.co · @alan.santana</p>
     </div>
   </div>
@@ -91,7 +91,7 @@
     </div>
   </div>
 
-  <a href="public/Alan%20Santana%20(1).pdf" target="_blank" rel="noopener" class="cv-card" id="cvCard">
+  <button type="button" class="cv-card" id="cvCard" data-open-cv aria-label="Ver CV">
     <span class="desliza">DESLIZA</span>
     <svg class="cv-arrow" viewBox="0 0 80 20" stroke="#6b6b6b" stroke-width="3" fill="none" stroke-linecap="round"><path d="M75 10 L5 10 M5 10 L15 3 M5 10 L15 17"/></svg>
     <div class="cv-doc">
@@ -101,7 +101,7 @@
       </div>
       <em>CURRICULUM</em>
     </div>
-  </a>
+  </button>
 
   <div class="marquee">
     <div class="marquee-track">
@@ -273,48 +273,39 @@
 
   <div class="timeline">
     <div class="t-item">
-      <div class="t-year">2024 — Hoy</div>
+      <div class="t-year">
+        <strong>Neon Print S.R.L</strong>
+        <span>2024 — 2025</span>
+      </div>
       <div class="t-body">
-        <h3>Diseñador Gráfico Freelance</h3>
-        <em>Independiente · Remoto</em>
-        <p>Identidad visual, ilustración y campañas publicitarias para marcas
-          emergentes. Dirección creativa de proyectos end-to-end.</p>
+        <h3>Pasante y auxiliar en imprenta</h3>
+        <p>Desempeñé funciones como operador de impresión y recibí
+          capacitación técnica en el manejo de maquinaria especializada.
+          Asimismo, brindé asesoría técnica a los clientes, optimizando
+          sus diseños para garantizar un acabado de alta calidad en los
+          productos finales.</p>
       </div>
     </div>
     <div class="t-item">
-      <div class="t-year">2023 — 2024</div>
-      <div class="t-body">
-        <h3>Diseñador & Editor de Video</h3>
-        <em>Orbentux · Proyecto ERP</em>
-        <p>Diseño de campañas digitales, piezas para redes sociales y motion
-          graphics para presentación de producto.</p>
+      <div class="t-year">
+        <strong>DIM — Diseño, impresión y más</strong>
+        <span>2023 — 2025</span>
       </div>
-    </div>
-    <div class="t-item">
-      <div class="t-year">2022 — 2023</div>
       <div class="t-body">
-        <h3>Ilustrador Editorial</h3>
-        <em>Proyectos independientes</em>
-        <p>Portadas, posters e ilustración editorial. Exploración de estilo
-          a través de collage digital y tipografía expresiva.</p>
-      </div>
-    </div>
-    <div class="t-item">
-      <div class="t-year">2021 — 2022</div>
-      <div class="t-body">
-        <h3>Asistente de Diseño</h3>
-        <em>Estudio local</em>
-        <p>Apoyo en branding, diagramación y producción de material gráfico
-          para clientes locales. Primeros pasos en publicidad.</p>
+        <h3>Proyecto comercial</h3>
+        <p>Co-fundador de un emprendimiento de productos personalizados,
+          donde además de tener una labor de líder, también formé parte
+          activa del equipo creativo, ejecutando tareas de diseño gráfico
+          y estrategias de marketing digital para el impulso del proyecto.</p>
       </div>
     </div>
   </div>
 
   <div class="exp-cta">
-    <a href="public/Alan%20Santana%20(1).pdf" target="_blank" rel="noopener" class="big-link light">
+    <button type="button" class="big-link light" id="openCv" data-open-cv>
       <span>Ver CV completo</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
+    </button>
   </div>
 </section>
 
@@ -345,6 +336,27 @@
     <button onclick="window.scrollTo({top:0,behavior:'smooth'})">Volver arriba ↑</button>
   </footer>
 </section>
+
+<!-- CV Modal -->
+<div class="cv-modal" id="cvModal" aria-hidden="true" role="dialog" aria-label="Vista previa del CV">
+  <div class="cv-modal-backdrop" data-close-cv></div>
+  <div class="cv-modal-inner">
+    <header class="cv-modal-head">
+      <div>
+        <strong>Alan Santana</strong>
+        <span>Curriculum Vitae · PDF</span>
+      </div>
+      <div class="cv-modal-actions">
+        <a class="cv-mini-btn" href="public/Alan%20Santana%20(1).pdf" target="_blank" rel="noopener">Abrir</a>
+        <a class="cv-mini-btn" href="public/Alan%20Santana%20(1).pdf" download>Descargar</a>
+        <button class="cv-close" type="button" data-close-cv aria-label="Cerrar">×</button>
+      </div>
+    </header>
+    <div class="cv-modal-body">
+      <iframe id="cvFrame" title="CV de Alan Santana" src=""></iframe>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>

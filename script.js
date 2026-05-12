@@ -142,3 +142,30 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// ---------- CV preview modal ----------
+const cvModal = document.getElementById('cvModal');
+const cvFrame = document.getElementById('cvFrame');
+const CV_SRC = 'public/Alan%20Santana%20(1).pdf';
+
+function openCv() {
+  if (!cvFrame.src) cvFrame.src = CV_SRC + '#view=FitH';
+  cvModal.classList.add('open');
+  cvModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('no-scroll');
+}
+function closeCv() {
+  cvModal.classList.remove('open');
+  cvModal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('no-scroll');
+}
+
+document.querySelectorAll('[data-open-cv]').forEach(el => {
+  el.addEventListener('click', (e) => { e.preventDefault(); openCv(); });
+});
+document.querySelectorAll('[data-close-cv]').forEach(el => {
+  el.addEventListener('click', closeCv);
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && cvModal.classList.contains('open')) closeCv();
+});
