@@ -115,19 +115,24 @@ video.addEventListener('click', () => {
 
 // ---------- Parallax on hero text ----------
 const huge = document.querySelector('.huge');
-window.addEventListener('mousemove', (e) => {
-  if (!huge) return;
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 12;
-  huge.style.transform = `translate(${x}px, ${y}px)`;
-});
+const isTouch = matchMedia('(hover: none)').matches || window.innerWidth < 900;
+if (!isTouch) {
+  window.addEventListener('mousemove', (e) => {
+    if (!huge) return;
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 12;
+    huge.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
 
 // ---------- Parallax scroll ----------
 const cvCard = document.getElementById('cvCard');
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  if (cvCard) cvCard.style.transform = `rotate(${2 - y * 0.01}deg) translateY(${y * 0.15}px)`;
-});
+if (!isTouch) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (cvCard) cvCard.style.transform = `rotate(${2 - y * 0.01}deg) translateY(${y * 0.15}px)`;
+  });
+}
 
 // ---------- Smooth scroll anchors ----------
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -145,11 +150,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // ---------- CV preview modal ----------
 const cvModal = document.getElementById('cvModal');
-const cvFrame = document.getElementById('cvFrame');
+const cvObject = document.getElementById('cvObject');
 const CV_SRC = 'public/Alan%20Santana%20(1).pdf';
 
-function openCv() {
-  if (!cvFrame.src) cvFrame.src = CV_SRC + '#view=FitH';
+// Mobile detection: Chrome/Safari mobile cannot render PDF inline; open new tab instead
+const isMobilePdf = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+function openCv(e) {
+  if (e) e.preventDefault();
+  if (isMobilePdf) {
+    window.open(CV_SRC, '_blank', 'noopener');
+    return;
+  }
+  if (!cvObject.getAttribute('data')) {
+    cvObject.setAttribute('data', CV_SRC + '#view=FitH&toolbar=1');
+  }
   cvModal.classList.add('open');
   cvModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('no-scroll');
@@ -161,7 +176,7 @@ function closeCv() {
 }
 
 document.querySelectorAll('[data-open-cv]').forEach(el => {
-  el.addEventListener('click', (e) => { e.preventDefault(); openCv(); });
+  el.addEventListener('click', openCv);
 });
 document.querySelectorAll('[data-close-cv]').forEach(el => {
   el.addEventListener('click', closeCv);

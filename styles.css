@@ -245,13 +245,17 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
 .hero-content { position: relative; z-index: 2; margin-top: 60px; }
 .huge {
   font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(70px, 18vw, 280px);
+  font-size: clamp(54px, 16vw, 260px);
   line-height: .85;
   letter-spacing: -.04em;
   color: var(--ink);
   position: relative;
 }
-.huge .word { display: inline-block; }
+.huge .word {
+  display: inline-block;
+  white-space: nowrap;
+  max-width: 100%;
+}
 .huge .char {
   display: inline-block;
   transform: translateY(110%);
@@ -272,11 +276,13 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
 .huge .char:hover { color: var(--red); transform: translateY(-8px) rotate(-3deg); transition: .3s; }
 
 .year {
-  font-family: 'Archivo Black';
-  font-size: clamp(20px, 2.5vw, 36px);
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(16px, 2vw, 32px);
   vertical-align: top;
   display: inline-block;
-  margin-left: 10px;
+  margin-left: 8px;
+  position: relative;
+  top: .4em;
   animation: pop-in .5s ease .8s backwards;
 }
 @keyframes pop-in { from { transform: scale(0) rotate(-90deg); opacity: 0; } }
@@ -296,20 +302,24 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
 .cv-card {
   position: absolute;
   top: 90px; right: 36px;
-  width: 200px; height: 240px;
+  width: 220px; height: 280px;
   background: var(--dark);
   color: #fff;
-  padding: 24px;
+  padding: 16px;
   display: flex; flex-direction: column;
-  justify-content: space-between;
+  gap: 10px;
   transform: rotate(2deg);
-  transition: transform .4s ease;
+  transition: transform .4s ease, box-shadow .4s ease;
   z-index: 3;
   opacity: 0;
   animation: fade-in 1s ease 1.4s forwards;
+  box-shadow: 0 14px 40px rgba(0,0,0,.18);
 }
 @keyframes fade-in { to { opacity: 1; } }
-.cv-card:hover { transform: rotate(0deg) scale(1.04) translateY(-6px); }
+.cv-card:hover {
+  transform: rotate(0deg) scale(1.04) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,.28);
+}
 .desliza {
   position: absolute;
   left: -110px; top: 80px;
@@ -327,45 +337,66 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
   animation: draw 1.4s ease 1.6s forwards;
 }
 .cv-doc {
-  background: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.06);
   border-radius: 4px;
-  padding: 16px;
+  padding: 8px;
+  flex: 1;
+  display: flex; flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+.cv-doc-preview {
+  flex: 1;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+}
+.cv-doc-preview object {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 200%;
+  border: 0;
+  pointer-events: none;
+  background: #fff;
+}
+.cv-doc-fallback {
   height: 100%;
   display: flex; flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  align-items: center; justify-content: center;
+  gap: 12px;
+  background: #f4f4f4;
+  color: #888;
 }
 .cv-doc-head {
   width: 28px; height: 28px; border-radius: 50%;
-  background: #fff;
+  background: #ccc;
   position: relative;
 }
 .cv-doc-head::after {
   content: '';
   position: absolute; top: 26px; left: -8px;
   width: 44px; height: 18px;
-  background: #fff;
+  background: #ccc;
   border-radius: 0 0 22px 22px;
 }
-.cv-doc-lines { display: flex; flex-direction: column; gap: 4px; width: 70%; margin-top: 30px; }
+.cv-doc-lines { display: flex; flex-direction: column; gap: 4px; width: 70%; margin-top: 14px; }
 .cv-doc-lines span {
-  height: 3px; background: #fff; opacity: .9;
-  transform: scaleX(0); transform-origin: left;
-  animation: line-in .4s ease forwards;
+  height: 3px; background: #ccc; opacity: .9;
 }
-.cv-doc-lines span:nth-child(1){animation-delay:1.8s}
-.cv-doc-lines span:nth-child(2){animation-delay:1.9s; width: 80%}
-.cv-doc-lines span:nth-child(3){animation-delay:2.0s; width: 60%}
-.cv-doc-lines span:nth-child(4){animation-delay:2.1s; width: 90%}
-.cv-doc-lines span:nth-child(5){animation-delay:2.2s; width: 70%}
-.cv-doc-lines span:nth-child(6){animation-delay:2.3s; width: 85%}
-@keyframes line-in { to { transform: scaleX(1); } }
+.cv-doc-lines span:nth-child(2){ width: 80% }
+.cv-doc-lines span:nth-child(3){ width: 60% }
+.cv-doc-lines span:nth-child(4){ width: 90% }
+.cv-doc-lines span:nth-child(5){ width: 70% }
+.cv-doc-lines span:nth-child(6){ width: 85% }
 .cv-doc em {
   font-style: normal;
-  font-family: 'Archivo Black';
-  font-size: 12px;
-  letter-spacing: .12em;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 11px;
+  letter-spacing: .14em;
   color: #fff;
+  text-align: center;
 }
 
 /* Marquee */
@@ -426,18 +457,22 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
 .sec-head {
   position: relative;
   margin-bottom: 80px;
-  max-width: 720px;
+  max-width: 100%;
 }
-.sec-head.reverse { margin-left: auto; text-align: right; }
+.sec-head .sec-desc { max-width: 480px; }
+.sec-head.reverse { text-align: right; }
+.sec-head.reverse .sec-desc { margin-left: auto; }
 .sec-tag { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .sec-tag.right { flex-direction: row-reverse; }
 
 .sec-title {
   font-family: 'Archivo Black', sans-serif;
-  font-size: clamp(60px, 10vw, 160px);
+  font-size: clamp(54px, 9vw, 150px);
   line-height: .9;
   letter-spacing: -.04em;
   color: var(--ink);
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .sec-title.dark { color: #fff; }
 .sec-desc {
@@ -510,18 +545,22 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
 }
 .card:hover .card-frame::after { opacity: 1; }
 .card-meta {
-  display: flex; align-items: baseline; gap: 12px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  row-gap: 2px;
+  align-items: baseline;
   margin-top: 16px;
-  font-family: 'Archivo Black';
+  font-family: 'Archivo Black', sans-serif;
   color: var(--ink);
 }
 .card-meta.dark { color: #fff; }
 .card-meta span { font-size: 12px; color: var(--red); }
 .card-meta h3 { font-size: 22px; letter-spacing: -.01em; }
 .card-meta em {
-  margin-left: auto;
+  grid-column: 2;
   font-style: normal;
-  font-family: 'Inter'; font-weight: 400;
+  font-family: 'Inter', sans-serif; font-weight: 400;
   font-size: 12px; opacity: .7;
 }
 
@@ -789,6 +828,13 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
   transition: background .3s, color .3s;
 }
 .foot button:hover { background: var(--ink); color: #fff; }
+.foot-link {
+  color: var(--red);
+  font-weight: 700;
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease, color .25s ease;
+}
+.foot-link:hover { border-bottom-color: var(--red); }
 
 /* ---------- CV Modal ---------- */
 .cv-modal {
@@ -866,14 +912,30 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
   flex: 1;
   background: #2a2a2a;
 }
-.cv-modal-body iframe {
+.cv-modal-body iframe,
+.cv-modal-body object {
   width: 100%; height: 100%; border: 0;
   background: #fff;
+  display: block;
 }
+.cv-fallback {
+  height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 18px;
+  padding: 30px;
+  text-align: center;
+  background: #1a1a1a;
+  color: #fff;
+}
+.cv-fallback p { color: #ccc; font-size: 14px; }
 
 body.no-scroll { overflow: hidden; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 1200px) {
+  .desliza, .cv-arrow { display: none; }
+}
 @media (max-width: 1100px) {
   .hero-top { right: 8%; }
 }
@@ -881,20 +943,59 @@ body.no-scroll { overflow: hidden; }
   .topbar { padding: 16px 20px; }
   .brand-text { font-size: 11px; }
   .menu-btn { padding: 12px 18px 12px 44px; font-size: 11px; }
-  .hero { padding: 100px 20px 40px; min-height: auto; }
+
+  /* Hero rebuilt for mobile: no absolute positioning */
+  .hero {
+    padding: 90px 20px 0;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-content { margin-top: 20px; }
+  .huge { font-size: clamp(48px, 14vw, 90px); }
+  .hero-row {
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
   .hero-top { display: none; }
-  .cv-card { position: relative; top: auto; right: auto; margin: 40px auto 0; transform: rotate(0); width: 180px; height: 220px; }
+
+  .cv-card {
+    position: relative;
+    top: auto; right: auto;
+    margin: 36px auto 0;
+    transform: rotate(0);
+    width: 200px; height: 240px;
+    opacity: 1;
+    animation: none;
+  }
+  .cv-card:hover { transform: scale(1.04) translateY(-6px); }
+  /* Mobile browsers can't render PDF in <object>, show illustrated fallback */
+  .cv-doc-preview object { display: none; }
+  .cv-doc-preview { display: flex; }
+  .cv-doc-fallback { display: flex !important; width: 100%; }
   .desliza, .cv-arrow { display: none; }
   .scroll-hint { display: none; }
-  .marquee { font-size: 14px; padding: 10px 0; }
+
+  .marquee {
+    position: relative;
+    bottom: auto; left: auto; right: auto;
+    margin: 40px -20px 0;
+    font-size: 13px;
+    padding: 10px 0;
+  }
+
   .section { padding: 80px 20px; }
   .light-section, .contact-section { border-radius: 36px 36px 0 0; }
-  .sec-head { margin-bottom: 50px; }
+  .sec-head { margin-bottom: 50px; max-width: 100%; }
   .sec-head.reverse { text-align: left; margin-left: 0; }
   .sec-head.reverse .sec-tag { flex-direction: row; }
   .sec-head.reverse .sec-desc { margin-left: 0; }
-  .sec-head.reverse .sec-index { left: auto; right: 0; }
   .sec-index { position: static; display: block; margin-bottom: 12px; }
+  .sec-title { font-size: clamp(50px, 14vw, 90px); }
+
   .card { flex-basis: 78vw; }
   .cc-btn { width: 46px; height: 46px; font-size: 18px; }
   .video-wrap { aspect-ratio: 9/14; }
@@ -905,6 +1006,7 @@ body.no-scroll { overflow: hidden; }
   .video-meta h3 { font-size: 16px; }
   .video-meta p { font-size: 11px; }
   .video-corner { font-size: 10px; padding: 6px 10px; }
+
   .timeline { padding-left: 24px; }
   .timeline::before { left: 6px; }
   .t-item { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; }
@@ -912,32 +1014,35 @@ body.no-scroll { overflow: hidden; }
   .t-year { text-align: left; order: 1; padding-top: 0; font-size: 11px; }
   .t-year strong { font-size: 12px; }
   .t-body { order: 2; }
+
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .contact-title { font-size: clamp(40px, 12vw, 80px); }
   .big-link { padding: 18px 24px; gap: 14px; font-size: 14px; width: 100%; justify-content: space-between; }
   .contact-right a { font-size: 16px; flex-direction: column; align-items: flex-start; gap: 4px; }
   .foot { flex-direction: column; gap: 14px; text-align: center; }
-  .foot-mid { order: 3; }
-  .drawer { padding: 100px 30px 30px; }
-  .cv-modal { padding: 12px; }
-  .cv-modal-inner { height: 92vh; border-radius: 10px; }
+
+  .drawer { padding: 100px 30px 30px; width: 100vw; }
+  .cv-modal { padding: 0; }
+  .cv-modal-inner { height: 100vh; width: 100vw; border-radius: 0; }
   .cv-modal-head { padding: 12px 14px; }
   .cv-mini-btn { padding: 7px 12px; font-size: 11px; }
   .cv-close { width: 34px; height: 34px; font-size: 20px; }
 }
 @media (max-width: 480px) {
-  .topbar { padding: 14px 16px; }
+  .topbar { padding: 12px 14px; }
   .brand-mark { width: 32px; height: 32px; font-size: 12px; }
   .brand-text small { display: none; }
   .menu-btn em { display: none; }
   .menu-btn { padding: 12px 14px 12px 38px; }
   .menu-btn span { left: 12px; width: 18px; }
-  .huge { font-size: 22vw; }
-  .hero-row { flex-direction: column; gap: 4px; }
-  .cv-card { width: 160px; height: 200px; padding: 18px; }
+  .huge { font-size: clamp(44px, 13vw, 70px); }
+  .year { font-size: 14px; margin-left: 6px; }
+  .cv-card { width: 160px; height: 200px; padding: 16px; }
   .section { padding: 60px 16px; }
-  .sec-title { font-size: clamp(46px, 14vw, 90px); }
-  .contact-section { padding: 80px 16px 30px; }
+  .sec-title { font-size: clamp(42px, 13vw, 70px); }
+  .contact-section { padding: 70px 16px 30px; }
   .cv-modal-actions { gap: 6px; }
+  .cv-modal-head strong { font-size: 14px; }
+  .cv-modal-head span { font-size: 10px; }
 }
 

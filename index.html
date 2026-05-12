@@ -95,11 +95,17 @@
     <span class="desliza">DESLIZA</span>
     <svg class="cv-arrow" viewBox="0 0 80 20" stroke="#6b6b6b" stroke-width="3" fill="none" stroke-linecap="round"><path d="M75 10 L5 10 M5 10 L15 3 M5 10 L15 17"/></svg>
     <div class="cv-doc">
-      <div class="cv-doc-head"></div>
-      <div class="cv-doc-lines">
-        <span></span><span></span><span></span><span></span><span></span><span></span>
+      <div class="cv-doc-preview">
+        <object data="public/Alan%20Santana%20(1).pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH&page=1" type="application/pdf" aria-hidden="true">
+          <div class="cv-doc-fallback">
+            <div class="cv-doc-head"></div>
+            <div class="cv-doc-lines">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </object>
       </div>
-      <em>CURRICULUM</em>
+      <em>VER CURRICULUM</em>
     </div>
   </button>
 
@@ -332,7 +338,7 @@
 
   <footer class="foot">
     <span>© 2026 Alan Santana</span>
-    <span class="foot-mid">Hecho con ♥ y café</span>
+    <span class="foot-mid">Hecho por <a href="https://davdev.me" target="_blank" rel="noopener" class="foot-link">DS</a></span>
     <button onclick="window.scrollTo({top:0,behavior:'smooth'})">Volver arriba ↑</button>
   </footer>
 </section>
@@ -353,7 +359,12 @@
       </div>
     </header>
     <div class="cv-modal-body">
-      <iframe id="cvFrame" title="CV de Alan Santana" src=""></iframe>
+      <object id="cvObject" data="" type="application/pdf" aria-label="CV de Alan Santana">
+        <div class="cv-fallback">
+          <p>Tu navegador no puede mostrar el PDF aquí.</p>
+          <a class="cv-mini-btn" href="public/Alan%20Santana%20(1).pdf" target="_blank" rel="noopener">Abrir en nueva pestaña</a>
+        </div>
+      </object>
     </div>
   </div>
 </div>
