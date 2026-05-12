@@ -614,6 +614,90 @@ button { font: inherit; border: none; background: none; cursor: none; color: inh
 .video-corner.bl { bottom: 18px; right: 36px; left: auto; }
 .video-corner.br { bottom: 18px; right: 18px; display: none; }
 
+/* ---------- Experience / Timeline ---------- */
+.experience-section {
+  background: var(--bg-2);
+  color: var(--ink);
+  padding: 140px 36px;
+}
+.exp-tag { display: inline-block; margin-bottom: 14px; }
+
+.timeline {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  position: relative;
+  padding-left: 40px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 14px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--red), transparent);
+}
+.t-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  padding: 32px 0;
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  transition: padding-left .4s ease, background .4s ease;
+}
+.t-item::before {
+  content: '';
+  position: absolute;
+  left: -33px; top: 44px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--bg-2);
+  box-shadow: 0 0 0 2px var(--ink);
+  transition: background .3s, transform .3s;
+}
+.t-item:hover { padding-left: 12px; }
+.t-item:hover::before { background: var(--red); transform: scale(1.3); }
+.t-year {
+  font-family: 'Archivo Black', sans-serif;
+  color: var(--red);
+  font-size: 14px;
+  letter-spacing: .12em;
+  padding-top: 6px;
+}
+.t-body h3 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(22px, 2.4vw, 32px);
+  letter-spacing: -.01em;
+  line-height: 1.1;
+}
+.t-body em {
+  display: block;
+  font-style: normal;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #666;
+  margin: 6px 0 12px;
+  letter-spacing: .04em;
+}
+.t-body p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #444;
+  max-width: 620px;
+}
+.exp-cta {
+  display: flex; justify-content: center;
+  margin-top: 80px;
+}
+.big-link.light { border-color: var(--ink); color: var(--ink); }
+.big-link.light:hover { background: var(--ink); color: var(--bg-2); }
+
+@media (max-width: 760px) {
+  .timeline { padding-left: 28px; }
+  .t-item { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .t-item::before { left: -21px; top: 32px; }
+}
+
 /* ---------- Contact ---------- */
 .contact-section {
   background: var(--paper);
