@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alan Santana — Portfolio 2025</title>
+<meta name="description" content="Portfolio 2025 de Alan Santana, diseñador gráfico. Ilustración, publicidad y video." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;600;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <span class="loader-word">A</span>
+    <span class="loader-word">L</span>
+    <span class="loader-word">A</span>
+    <span class="loader-word">N</span>
+    <span class="loader-spacer"></span>
+    <span class="loader-word">S</span>
+    <span class="loader-word">.</span>
+  </div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<!-- Noise overlay -->
+<div class="noise"></div>
+
+<!-- Top bar -->
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">AS</span>
+    <span class="brand-text">Alan Santana<br/><small>Diseñador Gráfico · 2025</small></span>
+  </div>
+  <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+    <em>Menú</em>
+  </button>
+</header>
+
+<!-- Slide-in menu -->
+<nav class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-inner">
+    <ul>
+      <li><a href="#hero" data-num="01">Inicio</a></li>
+      <li><a href="#ilustracion" data-num="02">Ilustración</a></li>
+      <li><a href="#publicidad" data-num="03">Publicidad</a></li>
+      <li><a href="#videos" data-num="04">Videos</a></li>
+      <li><a href="#contacto" data-num="05">Contacto</a></li>
+    </ul>
+    <div class="drawer-foot">
+      <a class="cv-btn" href="#" download>
+        <span>Descargar CV</span>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v14m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+      </a>
+      <p>alan.santana@design.co · @alan.santana</p>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg-grid"></div>
+
+  <div class="hero-top">
+    <span class="tag tag-red">Menu plegable</span>
+    <svg class="squiggle squiggle-1" viewBox="0 0 160 60" stroke="#d63a2f" fill="none" stroke-width="3" stroke-linecap="round">
+      <path d="M5 50 C 40 10, 90 60, 150 15" stroke-dasharray="200" stroke-dashoffset="200"/>
+      <path d="M140 8 L155 15 L143 25" />
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="huge" data-text="Portfolio">
+      <span class="word">
+        <span class="char">P</span><span class="char">o</span><span class="char">r</span><span class="char">t</span><span class="char">f</span><span class="char">o</span><span class="char">l</span><span class="char">i</span><span class="char">o</span>
+      </span>
+      <sup class="year">2025</sup>
+    </h1>
+    <div class="hero-row">
+      <p class="hero-name">ALAN SANTANA</p>
+      <p class="hero-role">DISEÑADOR GRÁFICO</p>
+    </div>
+  </div>
+
+  <a href="#cv" class="cv-card" id="cvCard">
+    <span class="desliza">DESLIZA</span>
+    <svg class="cv-arrow" viewBox="0 0 80 20" stroke="#6b6b6b" stroke-width="3" fill="none" stroke-linecap="round"><path d="M75 10 L5 10 M5 10 L15 3 M5 10 L15 17"/></svg>
+    <div class="cv-doc">
+      <div class="cv-doc-head"></div>
+      <div class="cv-doc-lines">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <em>CURRICULUM</em>
+    </div>
+  </a>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>ILUSTRACIÓN ✦ PUBLICIDAD ✦ EDITORIAL ✦ BRANDING ✦ MOTION ✦ POSTER DESIGN ✦ DIRECCIÓN DE ARTE ✦</span>
+      <span>ILUSTRACIÓN ✦ PUBLICIDAD ✦ EDITORIAL ✦ BRANDING ✦ MOTION ✦ POSTER DESIGN ✦ DIRECCIÓN DE ARTE ✦</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"><i></i></div>
+  </div>
+</section>
+
+<!-- ILUSTRACION -->
+<section class="section dark-section" id="ilustracion">
+  <div class="sec-head">
+    <div class="sec-tag">
+      <span class="tag tag-red">Carrucel</span>
+      <svg class="squiggle squiggle-2" viewBox="0 0 160 60" stroke="#d63a2f" fill="none" stroke-width="3" stroke-linecap="round">
+        <path d="M5 10 C 40 60, 90 0, 150 45"/>
+        <path d="M140 52 L155 45 L143 35"/>
+      </svg>
+    </div>
+    <h2 class="sec-title">Ilustracion</h2>
+    <p class="sec-desc">
+      La ilustración es una vaina dura y vacana que hace a la gente
+      dura como yo. Entonces quiero demostrar mi arte a través de estas piezas.
+    </p>
+    <span class="sec-index">— 02</span>
+  </div>
+
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <article class="card">
+        <div class="card-frame">
+          <img src="public/Captura de pantalla 2026-05-12 010439.png" alt="Dream Of" />
+        </div>
+        <div class="card-meta"><span>01</span><h3>DREAM OF</h3><em>Poster · 2024</em></div>
+      </article>
+      <article class="card">
+        <div class="card-frame">
+          <img src="public/Captura de pantalla 2026-05-12 010455.png" alt="Iconic" />
+        </div>
+        <div class="card-meta"><span>02</span><h3>ICONIC</h3><em>Editorial · 2024</em></div>
+      </article>
+      <article class="card">
+        <div class="card-frame">
+          <img src="public/Captura de pantalla 2026-05-12 010448.png" alt="Life Has Many Forms" />
+        </div>
+        <div class="card-meta"><span>03</span><h3>MANY FORMS</h3><em>Collage · 2024</em></div>
+      </article>
+      <article class="card">
+        <div class="card-frame">
+          <img src="public/Captura de pantalla 2026-05-12 010428.png" alt="Smile" />
+        </div>
+        <div class="card-meta"><span>04</span><h3>SMILE</h3><em>Cover · 2024</em></div>
+      </article>
+      <article class="card">
+        <div class="card-frame">
+          <img src="public/Captura de pantalla 2026-05-12 010419.png" alt="Pieza" />
+        </div>
+        <div class="card-meta"><span>05</span><h3>STUDY</h3><em>Mixed · 2024</em></div>
+      </article>
+    </div>
+    <div class="carousel-ctrls">
+      <button class="cc-btn" data-dir="-1" aria-label="Anterior">←</button>
+      <div class="cc-bar"><i></i></div>
+      <button class="cc-btn" data-dir="1" aria-label="Siguiente">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICIDAD -->
+<section class="section light-section" id="publicidad">
+  <div class="sec-head reverse">
+    <div class="sec-tag right">
+      <svg class="squiggle squiggle-3" viewBox="0 0 160 60" stroke="#d63a2f" fill="none" stroke-width="3" stroke-linecap="round">
+        <path d="M155 10 C 110 60, 60 0, 5 45"/>
+        <path d="M15 52 L5 45 L17 35"/>
+      </svg>
+      <span class="tag tag-red">Carrucel</span>
+    </div>
+    <h2 class="sec-title dark">Publicidad</h2>
+    <p class="sec-desc dark">
+      Campañas que conectan, comunican y convierten. Identidad visual y
+      mensajes con punch para marcas que no pasan desapercibidas.
+    </p>
+    <span class="sec-index dark">— 03</span>
+  </div>
+
+  <div class="carousel" data-carousel>
+    <div class="carousel-track">
+      <article class="card light">
+        <div class="card-frame">
+          <img src="public/sin título.jpg" alt="Orbentux ERP" />
+        </div>
+        <div class="card-meta dark"><span>01</span><h3>ORBENTUX</h3><em>ERP · Campaign</em></div>
+      </article>
+      <article class="card light">
+        <div class="card-frame">
+          <img src="public/sin título (1).jpg" alt="Publicidad" />
+        </div>
+        <div class="card-meta dark"><span>02</span><h3>BURGER 40%</h3><em>Promo · Food</em></div>
+      </article>
+      <article class="card light">
+        <div class="card-frame">
+          <img src="public/Captura de pantalla 2026-05-12 010419.png" alt="Muebles" />
+        </div>
+        <div class="card-meta dark"><span>03</span><h3>MUEBLES</h3><em>Retail · 2024</em></div>
+      </article>
+      <article class="card light">
+        <div class="card-frame">
+          <img src="public/Captura de pantalla 2026-05-12 010428.png" alt="Campaña" />
+        </div>
+        <div class="card-meta dark"><span>04</span><h3>SMILE CO.</h3><em>Brand · 2024</em></div>
+      </article>
+    </div>
+    <div class="carousel-ctrls dark">
+      <button class="cc-btn dark" data-dir="-1" aria-label="Anterior">←</button>
+      <div class="cc-bar dark"><i></i></div>
+      <button class="cc-btn dark" data-dir="1" aria-label="Siguiente">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section videos-section" id="videos">
+  <div class="sec-head">
+    <h2 class="sec-title">Videos</h2>
+    <p class="sec-desc">
+      Motion, ritmo y atmósfera. Piezas audiovisuales que respiran,
+      cuentan y enamoran. Reproduce y disfruta.
+    </p>
+    <span class="sec-index">— 04</span>
+  </div>
+
+  <div class="video-wrap" id="videoWrap">
+    <video id="reel" src="public/ramen.mp4" muted loop playsinline preload="metadata"></video>
+    <div class="video-overlay">
+      <button class="play-btn" id="playBtn" aria-label="Reproducir">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <div class="video-meta">
+        <h3>RAMEN — Short Film</h3>
+        <p>Dirección de arte & motion · 2024</p>
+      </div>
+    </div>
+    <div class="video-corner tl">REC ●</div>
+    <div class="video-corner tr">04:32</div>
+    <div class="video-corner bl">ALAN.S</div>
+    <div class="video-corner br">2025</div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section contact-section" id="contacto">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <small>— 05 / Contacto</small>
+      <h2 class="contact-title">¿Hablamos<br/>de tu próximo<br/><span>proyecto</span>?</h2>
+      <a href="mailto:alan.santana@design.co" class="big-link">
+        <span>alan.santana@design.co</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="contact-right">
+      <ul>
+        <li><span>01</span><a href="#">Instagram <em>@alan.santana</em></a></li>
+        <li><span>02</span><a href="#">Behance <em>/alansantana</em></a></li>
+        <li><span>03</span><a href="#">Dribbble <em>/alan.s</em></a></li>
+        <li><span>04</span><a href="#">LinkedIn <em>/in/alansantana</em></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <span>© 2025 Alan Santana</span>
+    <span class="foot-mid">Hecho con ♥ y café</span>
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})">Volver arriba ↑</button>
+  </footer>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
